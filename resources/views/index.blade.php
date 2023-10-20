@@ -81,18 +81,14 @@
                                             <td class="align-middle text-center">@{{ value.ten_danh_muc }}</td>
                                             <td class="align-middle text-center">@{{ value.slug_danh_muc }}</td>
                                             <td class="align-middle text-center">
-                                                <a href="">
-                                                    <div class="btn btn-success" v-on:click="xyz()"
+                                                    <button class="btn btn-success" v-on:click="xyz()"
                                                         v-if="value.tinh_trang == 1" style="min-width: 100px">
                                                         <b>Hiển thị</b>
-                                                    </div>
-                                                </a>
-                                                <a href="">
-                                                    <div class="btn btn-warning" v-on:click="xyz()"
+                                                    </button>
+                                                    <button class="btn btn-warning" v-on:click="xyz()"
                                                         v-else style="min-width: 100px">
                                                         <b>Tạm tắt</b>
-                                                    </div>
-                                                </a>
+                                                    </button>
                                             </td>
                                             <td class="align-middle text-center"><a href="">
                                                     <div class="btn btn-info text-light" style="min-width: 100px"><b>Cập

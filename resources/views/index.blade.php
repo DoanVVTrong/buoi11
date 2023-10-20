@@ -81,11 +81,11 @@
                                             <td class="align-middle text-center">@{{ value.ten_danh_muc }}</td>
                                             <td class="align-middle text-center">@{{ value.slug_danh_muc }}</td>
                                             <td class="align-middle text-center">
-                                                    <button class="btn btn-success" v-on:click="xyz()"
+                                                    <button class="btn btn-success" v-on:click="xyz(value , key)"
                                                         v-if="value.tinh_trang == 1" style="min-width: 100px">
                                                         <b>Hiển thị</b>
                                                     </button>
-                                                    <button class="btn btn-warning" v-on:click="xyz()"
+                                                    <button class="btn btn-warning" v-on:click="xyz(value , key)"
                                                         v-else style="min-width: 100px">
                                                         <b>Tạm tắt</b>
                                                     </button>
@@ -146,8 +146,12 @@
                     return item.ten_danh_muc.includes(x) || item.slug_danh_muc.includes(x);
                 });
             },
-            xyz(){
-
+            xyz(v,k){
+                if(this.list_san_pham[k].tinh_trang == 1){
+                  this.list_san_pham[k].tinh_trang = 0 ;
+                }else{
+                  this.list_san_pham[k].tinh_trang = 1 ;
+                }
             },
         }
     });

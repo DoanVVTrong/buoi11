@@ -58,7 +58,7 @@
                                         <th colspan="100%">
                                             <div class="input-group">
                                                 <input type="text" class="form-control"
-                                                    placeholder="Nhập vào tìm kiếm !">
+                                                    placeholder="Nhập vào tìm kiếm !" v-model="TTtimkiem">
                                                 <span class="input-group-text">
                                                     <div class="btn btn-primary" v-on:click="timkiem()">Tìm kiếm!</div>
                                                 </span>
@@ -124,7 +124,8 @@
                     'slug_danh_muc': 'may-tinh-bang',
                     'tinh_trang': 0
                 },
-            ]
+            ],
+            TTtimkiem: [],
         },
         created() {},
         methods: {
@@ -134,7 +135,10 @@
             },
 
             timkiem() {
-                console.log("em");
+                var x = this.TTtimkiem;
+                this.list_san_pham = this.list_san_pham.filter(function(item) {
+                    return item.ten_danh_muc.includes(x) || item.slug_danh_muc.includes(x);
+                });
             }
         }
     });

@@ -58,7 +58,8 @@
                                         <th colspan="100%">
                                             <div class="input-group">
                                                 <input type="text" class="form-control"
-                                                    placeholder="Nhập vào tìm kiếm !" v-model="TTtimkiem">
+                                                    placeholder="Nhập vào tìm kiếm !" v-model="TTtimkiem"
+                                                    v-on:keyup.enter="timkiem()">
                                                 <span class="input-group-text">
                                                     <div class="btn btn-primary" v-on:click="timkiem()">Tìm kiếm!</div>
                                                 </span>
@@ -79,11 +80,20 @@
                                             <th class="align-middle text-center">@{{ key + 1 }}</th>
                                             <td class="align-middle text-center">@{{ value.ten_danh_muc }}</td>
                                             <td class="align-middle text-center">@{{ value.slug_danh_muc }}</td>
-                                            <td class="align-middle text-center"><a href="">
-                                                    <div class="btn btn-success" style="min-width: 100px">
-                                                        <b>@{{ value.tinh_trang }}</b>
+                                            <td class="align-middle text-center">
+                                                <a href="">
+                                                    <div class="btn btn-success" v-on:click="xyz()"
+                                                        v-if="value.tinh_trang == 1" style="min-width: 100px">
+                                                        <b>Hiển thị</b>
                                                     </div>
-                                                </a></td>
+                                                </a>
+                                                <a href="">
+                                                    <div class="btn btn-warning" v-on:click="xyz()"
+                                                        v-else style="min-width: 100px">
+                                                        <b>Tạm tắt</b>
+                                                    </div>
+                                                </a>
+                                            </td>
                                             <td class="align-middle text-center"><a href="">
                                                     <div class="btn btn-info text-light" style="min-width: 100px"><b>Cập
                                                             nhật</b></div>
@@ -139,7 +149,10 @@
                 this.list_san_pham = this.list_san_pham.filter(function(item) {
                     return item.ten_danh_muc.includes(x) || item.slug_danh_muc.includes(x);
                 });
-            }
+            },
+            xyz(){
+
+            },
         }
     });
 </script>

@@ -94,12 +94,29 @@
                                                     <div class="btn btn-info text-light" style="min-width: 100px"><b>Cập
                                                             nhật</b></div>
                                                 </a></td>
-                                            <td class="align-middle text-center"><a href="">
-                                                    <div class="btn btn-danger" style="min-width: 100px"><b>Xoá</b>
+                                            <td class="align-middle text-center">
+                                                    <div class="btn btn-danger"  style="min-width: 100px" data-bs-toggle="modal" data-bs-target="#exampleModal"><b>Xoá</b>
                                                     </div>
-                                                </a></td>
+                                                </td>
                                         </tr>
                                     </template>
+                                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                            <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                Chú mày định xóa anh phải không?
+                                            </div>
+                                            <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                            <button v-on:click="xoaDanhMuc()" type="button" class="btn btn-danger">Xóa Đi Đừng Sợ</button>
+                                            </div>
+                                        </div>
+                                        </div>
+                                    </div>
                                 </tbody>
                             </table>
                         </div>
@@ -153,6 +170,10 @@
                   this.list_san_pham[k].tinh_trang = 1 ;
                 }
             },
+            xoaDanhMuc(){
+                console.log("ok bro");
+            }
+
         }
     });
 </script>

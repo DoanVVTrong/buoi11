@@ -149,6 +149,7 @@
                 },
             ],
             TTtimkiem: [],
+            viTriXoa:[],
         },
         created() {},
         methods: {
@@ -171,9 +172,8 @@
                 }
             },
             xoaDanhMuc(){
-                console.log("ok bro");
+                this.list_san_pham.splice(this.viTriXoa,1);
             }
-
         }
     });
 </script>

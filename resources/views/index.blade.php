@@ -24,24 +24,25 @@
                         </div>
                         <div class="card-body">
                             <label for=""><b>Tên danh mục</b></label>
-                            <input type="text" name="" class="form-control my-2" v-model="ten_danh_muc"
-                                placeholder="Nhập tên danh mục">
+                            <input type="text" name="" class="form-control my-2"
+                                v-model="danhMuc.ten_danh_muc" placeholder="Nhập tên danh mục">
                             <label for=""><b>Slug danh mục</b></label>
-                            <input type="text" name="" id="" v-model="slug_danh_muc" class="form-control my-2"
-                                placeholder="Nhập số lượng danh mục">
+                            <input type="text" name="" id="" v-model="danhMuc.slug_danh_muc"
+                                class="form-control my-2" placeholder="Nhập số lượng danh mục">
                             <label for=""><b>Tình trạng</b></label>
-                            <select class="form-select mt-2" v-model="tinh_trang" aria-label="Default select example">
-                                <option selected>Yes</option>
-                                <option value="1">No</option>
+                            <select class="form-select mt-2" v-model="danhMuc.tinh_trang"
+                                aria-label="Default select example">
+                                <option value="1" selected>Yes</option>
+                                <option value="0">No</option>
                                 <option value="2">Another</option>
                             </select>
                         </div>
                         <div class="card-footer">
-                            <a href="#">
-                                <div class="btn text-light" v-on:click="abc()"
-                                    style="background-color: rgb(102,16,242);"><b>Thêm mới</b>
-                                </div>
-                            </a>
+                            {{-- <a href="#"> --}}
+                            <div class="btn text-light" v-on:click="abc()" style="background-color: rgb(102,16,242);">
+                                <b>Thêm mới</b>
+                            </div>
+                            {{-- </a> --}}
                         </div>
                     </div>
                 </div>
@@ -53,6 +54,17 @@
                         <div class="card-body">
                             <table class="table table-bordered">
                                 <thead>
+                                    <tr>
+                                        <th colspan="100%">
+                                            <div class="input-group">
+                                                <input type="text" class="form-control"
+                                                    placeholder="Nhập vào tìm kiếm !">
+                                                <span class="input-group-text">
+                                                    <div class="btn btn-primary" v-on:click="timkiem()">Tìm kiếm!</div>
+                                                </span>
+                                            </div>
+                                        </th>
+                                    </tr>
                                     <tr>
                                         <th class="align-middle text-center">#</th>
                                         <th class="align-middle text-center">Tên danh mục</th>
@@ -99,9 +111,9 @@
     new Vue({
         el: '#app',
         data: {
-            ten_danh_muc : '',
-            slug_danh_muc : '',
-            tinh_trang : '',
+            danhMuc: {
+                // tự tạo value = v-model
+            },
             list_san_pham: [{
                     'ten_danh_muc': 'Balo',
                     'slug_danh_muc': 'balo',
@@ -114,16 +126,15 @@
                 },
             ]
         },
-        created() {
-        },
+        created() {},
         methods: {
             abc() {
-                var danhMuc = {
-                    'ten_danh_muc': this.ten_danh_muc,
-                    'slug_danh_muc': this.slug_danh_muc,
-                    'tinh_trang': this.tinh_trang
-                }
-                this.list_san_pham.push(danhMuc);
+                this.list_san_pham.push(this.danhMuc);
+                this.danhMuc = {};
+            },
+
+            timkiem() {
+                console.log("em");
             }
         }
     });
